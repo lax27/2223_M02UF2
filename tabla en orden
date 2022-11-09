@@ -1,0 +1,105 @@
+DROP TABLE IF EXISTS weapons_materials;
+DROP TABLE IF EXISTS armours_materials;
+
+DROP TABLE IF EXISTS materials;
+
+DROP TABLE IF EXISTS characters_weapons;
+DROP TABLE IF EXISTS characters_armours;
+DROP TABLE IF EXISTS characters_items;
+
+DROP TABLE IF EXISTS weapons;
+DROP TABLE IF EXISTS armours;
+DROP TABLE IF EXISTS items;
+
+DROP TABLE IF EXISTS weapons_types;
+DROP TABLE IF EXISTS armours_types;
+DROP TABLE IF EXISTS items_types;
+
+DROP TABLE IF EXISTS stats;
+
+DROP TABLE IF EXISTS characters;
+
+
+
+
+CREATE TABLE characters(
+	id_character INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	name VARCHAR(32),
+	age INT,
+	race VARCHAR(16),
+	gender CHAR(1),
+	class VARCHAR(16),
+	height FLOAT,
+	weight FLOAT,
+	country CHAR(3),
+	description TEXT);
+    
+    INSERT INTO characters(name,age,race,
+                           gender,class,height,
+                           weight,country,description)
+    VALUES("a",11,"letra",
+           "F","VOCAL",1.31233,
+           21.3,"ABC","ES UNA LETRA"),
+           
+           ("b",11,"letra",
+           "M","VOCAL",1.123,
+           2.3,"ABUC","ES UNA LEA"),
+           
+           ("C",11,"letra",
+           "F","MAYUS",1.33,
+           25.3,"ABCO","ES UNA LETA"),
+
+	   ("D",11,"letra",
+           "F","MAYUS",1.31,
+           26.3,"ABL","ES UNA LTRA");
+
+
+CREATE TABLE stats(
+	id_stat INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	agility INT,
+	hp FLOAT,
+	hp_max INT,
+	xp FLOAT,
+	xp_max INT,
+	mp FLOAT,
+	mp_max INT,
+	lvl INT,
+	physic_attack FLOAT,
+	magic_attack FLOAT,
+	physic_defense FLOAT,
+	magic_defense FLOAT,
+	stamina INT,
+	mana INT,
+	intel INT,
+	stealth INT,
+	luck INT,
+	faith INT,
+	velocity INT,
+	dexterity INT,
+	strength INT,
+	charisma INT,
+	vigor INT,
+	tenacity INT,
+	critical_rate FLOAT,
+	balance FLOAT,
+	id_character INT UNSIGNED,
+	FOREIGN KEY (id_character) REFERENCES characters(id_character)
+);
+
+INSERT INTO stats(agility,hp,hp_max,xp,xp_max,mp,mp_max,lvl,physic_attack,magic_attack,physic_defense,magic_defense,,stamina,mana,intel,stealth,luck,faith,
+		  velocity,dexterity,strength,charisma,vigor,tenacity,critical_rate,balance,id_character)
+VALUES()
+
+		
+	
+
+
+	
+	
+
+
+
+
+
+
+

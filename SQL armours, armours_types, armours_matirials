@@ -1,0 +1,71 @@
+
+
+CREATE TABLE armours_types(
+	id_armour_type INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    type VARCHAR(16),
+    description TEXT,
+    icon VARCHAR(16)
+);
+INSERT INTO armours_types(type,description,icon) 
+VALUES ("peto","pal pexito","peto.png"),
+		("traje","pal cuerpesito","traje.png"),
+        ("casco","pa la cabesa","casco.png");
+
+
+
+
+CREATE TABLE armours(
+    id_armour INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	armour VARCHAR(50),
+    weight FLOAT,
+    class VARCHAR(50),
+    magic_defense FLOAT,
+    physic_defense FLOAT,
+    durability INT,
+    lvl INT,
+    lvl_min INT,
+    cost FLOAT,
+    rarity INT,
+    description TEXT,
+    notriety INT,
+    id_armour_type INT UNSIGNED,
+	FOREIGN KEY (id_armour_type) REFERENCES armours_types(id_armour_type)
+);
+INSERT INTO armours(armour,weight,class,
+                    magic_defense,physic_defense,durability,
+                    lvl,lvl_min,cost,
+                    rarity,description,notriety,
+                    id_armour_type)
+VALUES("tunica de as",0.3,"as",
+       3.4,3.3,3,
+       1,1,4,
+       1,"tunica",1,1),
+       
+       ("kronos helmet",0.3,"pladin",
+       3.4,3.3,3,
+       1,1,4,
+       1,"casco",1,2);
+
+
+
+CREATE TABLE materials(
+  id_material int UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  material VARCHAR(16),
+  color CHAR(6),
+  cost FLOAT 
+);
+
+INSERT INTO materials(material,color,cost) 
+VALUES	("obsidiana", "000000", 40),
+	("madera", "ddeeaa", 10),
+	("carne", "ffff00", 5),
+        ("pana", "ffdddd" , 50),
+        ("goma sagrada", "ffffff", 10000),
+        ("piedra", "cccccc", 1),
+        ("cuero", "ddddaa", 20),
+        ("bandera españa", "ESPAÑA", 2030),
+        ("plumas de angel", "ffffff", 10000),
+        ("materia oscura", "000000", 10000),
+        ("hueso", "ffdddd", 10),
+        ("agua", "000ff", 1),
+        ("lava", "ff0000", 500);
